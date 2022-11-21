@@ -1,5 +1,5 @@
 <template>
-  <h2 class="h1">Fake Users 🚀😎</h2>
+  <h2 class="h1">Fake Users 🚀😎🎉</h2>
   <ul>
     <li
       :key="user.id"
