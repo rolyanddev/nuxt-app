@@ -1,4 +1,7 @@
 <template>
+  <Head>
+    <Title>Users XD</Title>
+  </Head>
   <h2 class="h1">Fake Users 🚀😎🎉</h2>
   <ul>
     <li
