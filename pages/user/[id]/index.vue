@@ -1,31 +1,31 @@
 <template>
-  <h2 class="text-blue-800 text-3xl font-semibold">Name: {{ user?.name }}</h2>
-  <h2 class="text-blue-800 text-3xl font-semibold">Email: {{ user?.email }}</h2>
-  <h2 class="text-blue-800 text-3xl font-semibold">
+  <h2 class="text-slate-900 text-2xl font-semibold">Name: {{ user?.name }}</h2>
+  <h2 class="text-slate-900 text-2xl font-semibold">
+    Email: {{ user?.email }}
+  </h2>
+  <h2 class="text-slate-900 text-2xl font-semibold">
     Username: {{ user?.username }}
   </h2>
-  <h2 class="text-blue-800 text-3xl font-semibold">
+  <h2 class="text-slate-900 text-2xl font-semibold">
     Website: {{ user?.website }}
   </h2>
 </template>
 
 <script setup lang="ts">
-import { User } from '~~/interfaces/Users'
+import { User } from '@/interfaces/Users'
 
-const route = useRoute()
+const { params } = useRoute()
 
-const uri = `https://jsonplaceholder.typicode.com/users/${route.params.id}`
-
-definePageMeta({
-  layout: 'users'
+useHead({
+  title: `User by id: ${params.id}`
 })
 
-const { data: user } = await useFetch<User>(uri)
+const { data: user, error } = await useFetch<User>(`/api/users/${params.id}`)
 
-if (!user.value) {
+if (error.value) {
   throw createError({
     statusCode: 404,
-    message: 'Página de usuario not found'
+    statusMessage: `User not found by userId: ${params.id}`
   })
 }
 </script>

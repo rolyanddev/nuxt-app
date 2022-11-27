@@ -1,22 +1,6 @@
 <template>
-  <nav>
-    <ul>
-      <li>
-        <NuxtLink :to="{ path: '/' }">Home</NuxtLink>
-      </li>
-      <li>
-        <NuxtLink :to="{ name: 'about' }">About</NuxtLink>
-      </li>
-      <li>
-        <NuxtLink :to="{ name: 'users' }">Users</NuxtLink>
-      </li>
-    </ul>
-  </nav>
-  <slot />
+  <TheHeader />
+  <main class="px-8 py-4">
+    <slot />
+  </main>
 </template>
-
-<style>
-.router-link-exact-active {
-  @apply text-green-600;
-}
-</style>

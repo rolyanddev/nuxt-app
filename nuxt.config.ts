@@ -1,4 +1,4 @@
-import { User, Users } from './interfaces/Users'
+import { Users } from './interfaces/Users'
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
@@ -11,6 +11,11 @@ export default defineNuxtConfig({
         {
           rel: 'stylesheet',
           href: 'https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone'
+        },
+        {
+          rel: 'icon',
+          href: '/favicon.svg',
+          type: 'image/svg+xml'
         }
       ]
     }
